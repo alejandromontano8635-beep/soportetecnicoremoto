@@ -293,9 +293,9 @@ El soporte presencial es cuando uno de nuestros técnicos va físicamente a tu d
 6. Formateo de Máquinas: Instalación limpia del sistema operativo (Windows 10/11 o Linux), drivers oficiales, programas básicos, configuración de seguridad. Incluye respaldo previo de datos.
 
 === PLANES Y PRECIOS ===
-- Plan Preventivo Básico: $150 MXN — REMOTO. Incluye: limpieza de archivos temporales, revisión de antivirus, optimización de arranque, informe digital del estado. NO incluye recuperación de archivos ni formateo.
-- Plan Soporte Completo: $350 MXN — REMOTO + PRESENCIAL. Incluye: todo el básico + instalación de antivirus premium + respaldo en nube + eliminación de virus/malware + limpieza física del equipo.
-- Plan Premium Todo Incluido: $600 MXN — TODO. Incluye: todo lo anterior + recuperación de archivos eliminados + formateo e instalación de SO + configuración de drivers + soporte post-servicio 7 días + garantía de satisfacción.
+- Plan Preventivo Básico: $50 MXN — REMOTO. Incluye: limpieza de archivos temporales, revisión de antivirus, optimización de arranque, informe digital del estado. NO incluye recuperación de archivos ni formateo.
+- Plan Soporte Completo: $100 MXN — REMOTO + PRESENCIAL. Incluye: todo el básico + instalación de antivirus premium + respaldo en nube + eliminación de virus/malware + limpieza física del equipo.
+- Plan Premium Todo Incluido: $150 MXN — TODO. Incluye: todo lo anterior + recuperación de archivos eliminados + formateo e instalación de SO + configuración de drivers + soporte post-servicio 7 días + garantía de satisfacción.
 - Diagnóstico inicial: COMPLETAMENTE GRATIS.
 - Los precios pueden variar según la complejidad del problema.
 - El pago se realiza AL FINALIZAR el servicio, una vez que verificas que todo funciona.
@@ -377,13 +377,13 @@ function fallbackResponse(msg) {
   if (msg.includes('presencial'))
     return 'El soporte presencial es cuando un técnico va a tu domicilio en Morelia, o traes tu equipo. Se usa para limpieza de hardware, formateos y problemas físicos. ¿Quieres agendar una visita? 🔧';
   if (msg.includes('virus') || msg.includes('malware') || msg.includes('infectada'))
-    return 'Para virus o malware hacemos limpieza profunda con aislamiento de tus archivos. El Plan Soporte Completo cuesta $350 MXN e incluye esto. ¿Agendamos? 🛡️';
+    return 'Para virus o malware hacemos limpieza profunda con aislamiento de tus archivos. El Plan Soporte Completo cuesta $100 MXN e incluye esto. ¿Agendamos? 🛡️';
   if (msg.includes('lenta') || msg.includes('traba') || msg.includes('lento'))
-    return 'Si tu PC está lenta, nuestro Plan Básico ($150 MXN) incluye limpieza de archivos basura y optimización de arranque. Se nota el cambio inmediatamente. ⚡';
+    return 'Si tu PC está lenta, nuestro Plan Básico ($50 MXN) incluye limpieza de archivos basura y optimización de arranque. Se nota el cambio inmediatamente. ⚡';
   if (msg.includes('recuperar') || msg.includes('borre') || msg.includes('perdi'))
     return '¡No muevas nada más del disco! Podemos intentar recuperar tus archivos con herramientas especializadas. Este servicio está en el Plan Premium ($600 MXN). 💾';
   if (msg.includes('format') || msg.includes('windows') || msg.includes('reinstal'))
-    return 'El formateo incluye instalación limpia de Windows o Linux, drivers y configuración básica por $600 MXN con respaldo garantizado previo. 💿';
+    return 'El formateo incluye instalación limpia de Windows o Linux, drivers y configuración básica por $150 MXN con respaldo garantizado previo. 💿';
   if (msg.includes('precio') || msg.includes('costo') || msg.includes('cuanto'))
     return 'Tenemos 3 planes: Básico $150 MXN, Soporte Completo $350 MXN y Premium $600 MXN todo incluido. Diagnóstico GRATIS. Pago al finalizar. 💰';
   if (msg.includes('hola') || msg.includes('buenos') || msg.includes('buenas'))
