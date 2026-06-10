@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechSupport Pro — Soporte de Cómputo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+  <style>
+    /* Estilo adicional para ajustar los nuevos botones dentro de las tarjetas */
+    .btn-card-service {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      padding: 10px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== LOADER DE ENTRADA ========== -->
+<div class="page-loader" id="page-loader">
+  <div class="loader-inner">
+    <div class="loader-bull">
+      <svg viewBox="0 0 120 100" width="90" height="75">
+        <path d="M18 28 Q10 18 4 10 Q14 14 22 22" fill="#ff3300" opacity="0.9"/>
+        <path d="M102 28 Q110 18 116 10 Q106 14 98 22" fill="#ff3300" opacity="0.9"/>
+        <ellipse cx="60" cy="50" rx="38" ry="34" fill="#1a0a00"/>
+        <circle cx="44" cy="44" r="8" fill="#ff3300"/>
+        <circle cx="76" cy="44" r="8" fill="#ff3300"/>
+        <circle cx="46" cy="43" r="3.5" fill="#ff6600"/>
+        <circle cx="78" cy="43" r="3.5" fill="#ff6600"/>
+        <circle cx="47" cy="42" r="1.8" fill="#fff" opacity=".8"/>
+        <circle cx="79" cy="42" r="1.8" fill="#fff" opacity=".8"/>
+        <path d="M48 62 Q60 70 72 62" stroke="#ff3300" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <ellipse cx="60" cy="58" rx="12" ry="7" fill="#2a1000"/>
+        <ellipse cx="60" cy="57" rx="8" ry="4" fill="#ff3300" opacity="0.5"/>
+        <path d="M32 38 Q24 28 28 18 Q34 30 36 40" fill="#1a0a00"/>
+        <path d="M88 38 Q96 28 92 18 Q86 30 84 40" fill="#1a0a00"/>
+      </svg>
+    </div>
+    <div class="loader-logo">TECHSUPPORT PRO</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar-fill" id="loader-bar"></div>
+    </div>
+    <div class="loader-status" id="loader-status">Inicializando sistema...</div>
+  </div>
+</div>
+<!-- ========================================= -->
+
+<div class="cursor"></div>
+<div class="cursor-trail"></div>
+
+<canvas id="particles-canvas"></canvas>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-logo">
+    <span class="logo-bracket">[</span>
+    <span class="logo-text">TECH<span class="neon-green">SUPPORT</span></span>
+    <span class="logo-bracket">]</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#inicio" class="nav-link">INICIO</a></li>
+    <li><a href="#servicios" class="nav-link">SERVICIOS</a></li>
+    <li><a href="#precios" class="nav-link">PRECIOS</a></li>
+    <li><a href="#nosotros" class="nav-link">NOSOTROS</a></li>
+    <li><a href="#faq" class="nav-link">FAQ</a></li>
+    <li><a href="#contacto" class="nav-link btn-nav">CONTACTO</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section class="hero" id="inicio">
+  <div class="hero-bg-img" aria-hidden="true">
+    <video class="section-video" autoplay muted loop playsinline>
+      <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_24fps.mp4" type="video/mp4" />
+      <!-- fallback -->
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80&auto=format&fit=crop" alt="" />
+    </video>
+    <div class="hero-bg-overlay"></div>
+  </div>
+  <div class="company-name-placeholder">
+    <div class="placeholder-label">◈ NOMBRE DE LA EMPRESA ◈</div>
+    <div class="placeholder-box">
+      <span class="placeholder-text">[ TU EMPRESA AQUÍ ]</span>
+      <div class="placeholder-cursor">|</div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      SOPORTE TÉCNICO PROFESIONAL
+    </div>
+    <h1 class="hero-title">
+      <span class="line1">SOLUCIONES</span>
+      <span class="line2">TECNOLÓGICAS</span>
+      <span class="line3">AVANZADAS</span>
+    </h1>
+    <p class="hero-subtitle">Mantenimiento remoto y presencial · Seguridad digital · Recuperación de datos</p>
+    <div class="hero-buttons">
+      <a href="#servicios" class="btn-primary">
+        <span class="btn-icon">⚡</span> VER SERVICIOS
+      </a>
+      <a href="#contacto" class="btn-secondary">
+        <span class="btn-icon">📡</span> CONTACTAR AHORA
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number" data-target="500">0</span><span>+</span>
+        <span class="stat-label">Equipos reparados</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="98">0</span><span>%</span>
+        <span class="stat-label">Satisfacción</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="24">0</span><span>/7</span>
+        <span class="stat-label">Disponibilidad</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="426">0</span>
+        <span class="stat-label">Grupo</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="5">0</span>
+        <span class="stat-label">Integrantes</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="monitor-frame">
+      <div class="monitor-screen">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span class="t-dot red"></span>
+            <span class="t-dot yellow"></span>
+            <span class="t-dot green"></span>
+            <span class="t-title">sistema_diagnostico.exe</span>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <p class="t-line"><span class="t-prompt">$</span> Iniciando diagnóstico...</p>
+          </div>
+        </div>
+      </div>
+      <div class="monitor-stand"></div>
+      <div class="monitor-base"></div>
+    </div>
+    <div class="orbit-ring ring-1"></div>
+    <div class="orbit-ring ring-2"></div>
+    <div class="orbit-dot dot-1"></div>
+    <div class="orbit-dot dot-2"></div>
+    <div class="orbit-dot dot-3"></div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<section class="section has-video-bg" id="servicios">
+  <div class="section-video-wrap" aria-hidden="true">
+    <video class="section-video" autoplay muted loop playsinline>
+      <source src="https://videos.pexels.com/video-files/3255452/3255452-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+    </video>
+    <div class="section-video-overlay"></div>
+  </div>
+  <div class="section-header">
+    <div class="section-tag">// CATÁLOGO DE SERVICIOS</div>
+    <h2 class="section-title">NUESTROS <span class="neon-green">SERVICIOS</span></h2>
+    <p class="section-subtitle">Soluciones completas para el cuidado de tus equipos de cómputo</p>
+  </div>
+
+  <div class="services-category">
+    <div class="category-label">
+      <div class="cat-icon">🛡️</div>
+      <div>
+        <h3>SERVICIOS PREVENTIVOS</h3>
+        <p>Asistencia Remota</p>
+      </div>
+      <div class="cat-badge">REMOTO</div>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card" data-delay="0">
+        <div class="card-number">01</div>
+        <div class="card-icon-wrap">
+          <span class="card-icon">🗂️</span>
+          <div class="card-glow"></div>
+        </div>
+        <h4>Limpieza de Archivos Temporales</h4>
+        <div class="card-image-slot">
+          <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=500&q=75&auto=format&fit=crop" alt="Limpieza de archivos temporales" class="card-img" />
+        </div>
+        <div class="card-tags">
+          <span class="tag">Remoto</span>
+          <span class="tag">Rápido</span>
+        </div>
+        <a href="limpieza.html" class="btn-primary btn-card-service">MÁS INFORMACIÓN ⚡</a>
+      </div>
+
+      <div class="service-card" data-delay="100">
+        <div class="card-number">02</div>
+        <div class="card-icon-wrap">
+          <span class="card-icon">🦠</span>
+          <div class="card-glow"></div>
+        </div>
+        <h4>Instalación y Revisión de Antivirus</h4>
+        <div class="card-image-slot">
+          <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=500&q=75&auto=format&fit=crop" alt="Antivirus y seguridad" class="card-img" />
+        </div>
+        <div class="card-tags">
+          <span class="tag">Seguridad</span>
+          <span class="tag">Remoto</span>
+        </div>
+        <a href="antivirus.html" class="btn-primary btn-card-service">MÁS INFORMACIÓN ⚡</a>
+      </div>
+
+      <div class="service-card" data-delay="200">
+        <div class="card-number">03</div>
+        <div class="card-icon-wrap">
+          <span class="card-icon">☁️</span>
+          <div class="card-glow"></div>
+        </div>
+        <h4>Respaldo de Archivos en la Nube</h4>
+        <div class="card-image-slot">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&q=75&auto=format&fit=crop" alt="Respaldo en la nube" class="card-img" />
+        </div>
+        <div class="card-tags">
+          <span class="tag">Nube</span>
+          <span class="tag">Respaldo</span>
+        </div>
+        <a href="respaldo-nube.html" class="btn-primary btn-card-service">MÁS INFORMACIÓN ⚡</a>
+      </div>
+
+      <div class="service-card wide-card" data-delay="300">
+        <div class="card-number">+</div>
+        <div class="card-icon-wrap">
+          <span class="card-icon">🧹</span>
+          <div class="card-glow"></div>
+        </div>
+        <h4>Limpieza Física y Lógica</h4>
+        <div class="card-image-slot wide-image">
+          <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=900&q=75&auto=format&fit=crop" alt="Limpieza física de computadora" class="card-img" />
+        </div>
+        <div class="card-tags">
+          <span class="tag">Físico</span>
+          <span class="tag">Lógico</span>
+          <span class="tag">Completo</span>
+        </div>
+        <a href="limpieza-fisica-logica.html" class="btn-primary btn-card-service">MÁS INFORMACIÓN ⚡</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider">
+    <div class="div-line"></div>
+    <div class="div-icon">⚙️</div>
+    <div class="div-line"></div>
+  </div>
+
+  <div class="services-category">
+    <div class="category-label">
+      <div class="cat-icon">🔧</div>
+      <div>
+        <h3>SERVICIOS CORRECTIVOS</h3>
+        <p>Asistencia Remota y Presencial</p>
+      </div>
+      <div class="cat-badge red">PRESENCIAL</div>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card red-card" data-delay="0">
+        <div class="card-number">04</div>
+        <div class="card-icon-wrap">
+          <span class="card-icon">🛡️</span>
+          <div class="card-glow red-glow"></div>
+        </div>
+        <h4>Eliminación de Virus o Malware</h4>
+        <div class="card-image-slot">
+          <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=500&q=75&auto=format&fit=crop" alt="Eliminación de virus y malware" class="card-img" />
+        </div>
+        <div class="card-tags">
+          <span class="tag red-tag">Urgente</span>
+          <span class="tag">Remoto</span>
+        </div>
+        <a href="eliminacion-malware.html" class="btn-secondary btn-card-service" style="border-color: #ff3333; color: #ff3333;">MÁS INFORMACIÓN ⚡</a>
+      </div>
+
+      <div class="service-card red-card" data-delay="100">
+        <div class="card-number">05</div>
+        <div class="card-icon-wrap">
+          <span class="card-icon">💾</span>
+          <div class="card-glow red-glow"></div>
+        </div>
+        <h4>Recuperación de Archivos Eliminados</h4>
+        <div class="card-image-slot">
+          <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&q=75&auto=format&fit=crop" alt="Recuperación de archivos" class="card-img" />
+        </div>
+        <div class="card-tags">
+          <span class="tag red-tag">Especializado</span>
+          <span class="tag">Datos</span>
+        </div>
+        <a href="recuperacion-archivos.html" class="btn-secondary btn-card-service" style="border-color: #ff3333; color: #ff3333;">MÁS INFORMACIÓN ⚡</a>
+      </div>
+
+      <div class="service-card red-card" data-delay="200">
+        <div class="card-number">06</div>
+        <div class="card-icon-wrap">
+          <span class="card-icon">💿</span>
+          <div class="card-glow red-glow"></div>
+        </div>
+        <h4>Formateo de Máquinas</h4>
+        <div class="card-image-slot">
+          <img src="https://images.unsplash.com/photo-1640158615573-cd28feb1bf4e?w=500&q=75&auto=format&fit=crop" alt="Formateo e instalación de sistema operativo" class="card-img" />
+        </div>
+        <div class="card-tags">
+          <span class="tag">Windows</span>
+          <span class="tag">Linux</span>
+          <span class="tag red-tag">Presencial</span>
+        </div>
+        <a href="formateo-maquinas.html" class="btn-secondary btn-card-service" style="border-color: #ff3333; color: #ff3333;">MÁS INFORMACIÓN ⚡</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section pricing-section has-video-bg" id="precios">
+  <div class="section-video-wrap" aria-hidden="true">
+    <video class="section-video" autoplay muted loop playsinline>
+      <source src="https://videos.pexels.com/video-files/2278095/2278095-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+    </video>
+    <div class="section-video-overlay"></div>
+  </div>
+  <div class="section-header">
+    <div class="section-tag">// PLANES Y TARIFAS</div>
+    <h2 class="section-title">PRECIOS <span class="neon-green">TRANSPARENTES</span></h2>
+    <p class="section-subtitle">Sin costos ocultos · Pago al finalizar el servicio</p>
+  </div>
+
+  <div class="pricing-grid">
+
+    <div class="price-card">
+      <div class="price-header">
+        <div class="price-icon">🛡️</div>
+        <h3>PREVENTIVO BÁSICO</h3>
+        <div class="price-badge">REMOTO</div>
+      </div>
+      <div class="price-amount">
+        <span class="currency">$</span>
+        <span class="amount">50</span>
+        <span class="period">MXN</span>
+      </div>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Limpieza de archivos temporales</li>
+        <li><span class="check">✓</span> Revisión de antivirus</li>
+        <li><span class="check">✓</span> Optimización de arranque</li>
+        <li><span class="check">✓</span> Informe digital del estado</li>
+        <li class="disabled"><span class="cross">✗</span> Recuperación de archivos</li>
+        <li class="disabled"><span class="cross">✗</span> Formateo de sistema</li>
+      </ul>
+      <a href="#contacto" class="btn-price">CONTRATAR</a>
+    </div>
+
+    <div class="price-card featured">
+      <div class="featured-badge">⭐ MÁS POPULAR</div>
+      <div class="price-header">
+        <div class="price-icon">🔧</div>
+        <h3>SOPORTE COMPLETO</h3>
+        <div class="price-badge green">REMOTO + PRESENCIAL</div>
+      </div>
+      <div class="price-amount">
+        <span class="currency">$</span>
+        <span class="amount">100</span>
+        <span class="period">MXN</span>
+      </div>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Todo lo del plan básico</li>
+        <li><span class="check">✓</span> Instalación de antivirus premium</li>
+        <li><span class="check">✓</span> Respaldo en la nube</li>
+        <li><span class="check">✓</span> Eliminación de virus/malware</li>
+        <li><span class="check">✓</span> Limpieza física del equipo</li>
+        <li class="disabled"><span class="cross">✗</span> Formateo completo incluido</li>
+      </ul>
+      <a href="#contacto" class="btn-price featured-btn">CONTRATAR</a>
+    </div>
+
+    <div class="price-card">
+      <div class="price-header">
+        <div class="price-icon">💎</div>
+        <h3>PLAN PREMIUM</h3>
+        <div class="price-badge blue">TODO INCLUIDO</div>
+      </div>
+      <div class="price-amount">
+        <span class="currency">$</span>
+        <span class="amount">150</span>
+        <span class="period">MXN</span>
+      </div>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Todo lo del plan completo</li>
+        <li><span class="check">✓</span> Recuperación de archivos eliminados</li>
+        <li><span class="check">✓</span> Formateo e instalación de SO</li>
+        <li><span class="check">✓</span> Configuración de drivers</li>
+        <li><span class="check">✓</span> Soporte post-servicio 7 días</li>
+        <li><span class="check">✓</span> Garantía de satisfacción</li>
+      </ul>
+      <a href="#contacto" class="btn-price">CONTRATAR</a>
+    </div>
+
+  </div>
+
+  <div class="pricing-note">
+    <span>💡</span>
+    <p>Los precios pueden variar según la complejidad del problema. Diagnóstico inicial <strong>GRATIS</strong>. Contáctanos para un presupuesto personalizado.</p>
+  </div>
+</section>
+
+<section class="section about-section has-video-bg" id="nosotros">
+  <div class="section-video-wrap" aria-hidden="true">
+    <video class="section-video" autoplay muted loop playsinline>
+      <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+    </video>
+    <div class="section-video-overlay"></div>
+  </div>
+  <div class="section-header">
+    <div class="section-tag">// EQUIPO DE TRABAJO</div>
+    <h2 class="section-title">SOBRE <span class="neon-green">NOSOTROS</span></h2>
+    <p class="section-subtitle">Un equipo apasionado por la tecnología y el servicio al cliente</p>
+  </div>
+
+  <div class="about-content">
+    <div class="about-text">
+      <div class="about-img-wrap">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&q=80&auto=format&fit=crop" alt="Equipo de soporte técnico" class="about-img" />
+        <div class="about-img-badge">
+          <span>⚡</span> SOPORTE PROFESIONAL
+        </div>
+      </div>
+      <p class="about-lead">Somos un equipo de técnicos especializados comprometidos con brindar soluciones tecnológicas de calidad para personas y empresas.</p>
+      <p>Nos especializamos en el mantenimiento preventivo y correctivo de equipos de cómputo, tanto de forma remota como presencial. Nuestro objetivo es que tu tecnología funcione siempre al máximo rendimiento.</p>
+      <div class="about-values">
+        <div class="value-item">
+          <span class="value-icon">⚡</span>
+          <div>
+            <strong>Rapidez</strong>
+            <p>Resolvemos problemas en el menor tiempo posible</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">🔒</span>
+          <div>
+            <strong>Confianza</strong>
+            <p>Tu información está segura con nosotros</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">🎯</span>
+          <div>
+            <strong>Precisión</strong>
+            <p>Diagnósticos exactos, soluciones efectivas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="member-avatar">
+          <div class="avatar-img-slot">
+            <img src=" />
+          </div>
+          <div class="member-glow"></div>
+        </div>
+        <div class="member-info">
+          <h4>Jose Luis M.E.</h4>
+          <span class="member-role">Técnico Senior</span>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-avatar">
+          <div class="avatar-img-slot">
+            <img src=" />
+          </div>
+          <div class="member-glow"></div>
+        </div>
+        <div class="member-info">
+          <h4>Alejandro M.G.</h4>
+          <span class="member-role">Especialista en Redes</span>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-avatar">
+          <div class="avatar-img-slot">
+            <img src=" />
+          </div>
+          <div class="member-glow"></div>
+        </div>
+        <div class="member-info">
+          <h4>Gabriel Savala J.</h4>
+          <span class="member-role">Seguridad Informática</span>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-avatar">
+          <div class="avatar-img-slot">
+            <img src=" />
+          </div>
+          <div class="member-glow"></div>
+        </div>
+        <div class="member-info">
+          <h4>Emmanuel G.R.</h4>
+          <span class="member-role">Soporte Técnico</span>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-avatar">
+          <div class="avatar-img-slot">
+            <img src=" />
+          </div>
+          <div class="member-glow"></div>
+        </div>
+        <div class="member-info">
+          <h4>Brayan Santiago S.A.</h4>
+          <span class="member-role">Recuperación de Datos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="platform-info">
+    <div class="platform-label">⚙️ PLATAFORMA DE DESARROLLO</div>
+    <div class="platforms">
+      <div class="platform-item">
+        <span class="platform-icon">💻</span>
+        <span>Visual Studio Code</span>
+      </div>
+      <div class="platform-item">
+        <span class="platform-icon">🌐</span>
+        <span>HTML / CSS / JavaScript</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section faq-section" id="faq">
+  <div class="section-header">
+    <div class="section-tag">// AYUDA Y SOPORTE</div>
+    <h2 class="section-title">PREGUNTAS <span class="neon-green">FRECUENTES</span></h2>
+    <p class="section-subtitle">Resolvemos tus dudas antes de que las tengas</p>
+  </div>
+
+  <div class="faq-container">
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Cómo funciona el soporte remoto?</span>
+        <span class="faq-arrow">▶</span>
+      </button>
+      <div class="faq-answer">
+        <p>El soporte remoto funciona a través de software especializado que nos permite conectarnos a tu equipo con tu permiso. Solo necesitas internet y en minutos podemos estar trabajando en tu computadora sin que tengas que salir de casa.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Es seguro el acceso remoto a mi equipo?</span>
+        <span class="faq-arrow">▶</span>
+      </button>
+      <div class="faq-answer">
+        <p>Totalmente. La sesión solo inicia cuando tú lo autorizas y puedes ver en pantalla todo lo que hacemos en tiempo real. Puedes desconectarnos en cualquier momento y nunca accedemos sin tu consentimiento expreso.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Cuánto tiempo tarda un servicio?</span>
+        <span class="faq-arrow">▶</span>
+      </button>
+      <div class="faq-answer">
+        <p>Depende del tipo de servicio. La limpieza de temporales puede tardar 30 minutos. Una eliminación de virus entre 1-2 horas. Un formateo completo entre 2-4 horas. Te informamos el tiempo estimado antes de comenzar.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Puedo perder mis datos durante el servicio?</span>
+        <span class="faq-arrow">▶</span>
+      </button>
+      <div class="faq-answer">
+        <p>Siempre realizamos un respaldo de tus datos importantes antes de cualquier intervención que pueda ser riesgosa. Tu información es nuestra prioridad. En servicios de formateo, hacemos copia de seguridad previa obligatoria.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Trabajan con todas las marcas de computadoras?</span>
+        <span class="faq-arrow">▶</span>
+      </button>
+      <div class="faq-answer">
+        <p>Sí, trabajamos con equipos HP, Dell, Lenovo, Asus, Acer, Mac, y cualquier marca o modelo. También atendemos laptops, desktops, all-in-one y equipos de ensamble.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Tienen garantía en sus servicios?</span>
+        <span class="faq-arrow">▶</span>
+      </button>
+      <div class="faq-answer">
+        <p>Sí. Todos nuestros servicios tienen garantía. Si el problema vuelve a presentarse en los días siguientes a nuestra intervención, regresamos sin costo adicional. El Plan Premium incluye 7 días de soporte post-servicio.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Cómo puedo pagar?</span>
+        <span class="faq-arrow">▶</span>
+      </button>
+      <div class="faq-answer">
+        <p>Aceptamos efectivo, transferencia bancaria y pagos digitales (CoDi, Mercado Pago). El Pago se realiza al finalizar el servicio, una vez que verificas que todo funciona correctamente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-section" id="contacto">
+  <div class="section-header">
+    <div class="section-tag">// CONTÁCTANOS</div>
+    <h2 class="section-title">¿LISTO PARA <span class="neon-green">EMPEZAR?</span></h2>
+    <p class="section-subtitle">Estamos a un mensaje de solucionar tu problema</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-icon">📱</span>
+        <div>
+          <strong>WhatsApp / Teléfono</strong>
+          <p>+52 (443) 000-0000</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📧</span>
+        <div>
+          <strong>Correo Electrónico</strong>
+          <p>contacto@techsupport.mx</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📍</span>
+        <div>
+          <strong>Ubicación</strong>
+          <p>Morelia, Michoacán, México</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">🕐</span>
+        <div>
+          <strong>Horario de Atención</strong>
+          <p>Lun–Sáb: 9:00am – 8:00pm</p>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" id="contact-form">
+      <div class="form-group">
+        <label>NOMBRE COMPLETO</label>
+        <input type="text" placeholder="Tu nombre..." />
+      </div>
+      <div class="form-group">
+        <label>CORREO ELECTRÓNICO</label>
+        <input type="email" placeholder="tucorreo@email.com" />
+      </div>
+      <div class="form-group">
+        <label>TIPO DE SERVICIO</label>
+        <select>
+          <option value="">Selecciona un servicio...</option>
+          <option>Limpieza de archivos temporales</option>
+          <option>Instalación/Revisión de antivirus</option>
+          <option>Respaldo en la nube</option>
+          <option>Limpieza física y lógica</option>
+          <option>Eliminación de virus/malware</option>
+          <option>Recuperación de archivos</option>
+          <option>Formateo de máquina</option>
+          <option>Otro / Diagnóstico</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>DESCRIBE TU PROBLEMA</label>
+        <textarea placeholder="Cuéntanos qué le pasa a tu equipo..."></textarea>
+      </div>
+      <button type="button" class="btn-submit" onclick="submitForm()">
+        <span class="btn-loader" id="btn-loader" style="display:none">⟳</span>
+        <span id="btn-text">ENVIAR SOLICITUD ⚡</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <span class="logo-bracket">[</span>
+      <span class="logo-text">TECH<span class="neon-green">SUPPORT</span></span>
+      <span class="logo-bracket">]</span>
+    </div>
+    <p class="footer-tagline">Tecnología que funciona · Soporte que resuelve</p>
+    <div class="footer-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#precios">Precios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <p class="footer-copy">© 2026 TechSupport Pro · Morelia, Michoacán · Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<div class="chatbot-container" id="chatbot">
+  <div class="chatbot-header" id="chatbot-header">
+    <div class="bot-status">
+      <div class="bot-avatar toromax-av">
+        <svg viewBox="0 0 50 42" width="34" height="28">
+          <path d="M8 12 Q3 6 0 1 Q7 4 11 10" fill="#00ff88"/>
+          <path d="M42 12 Q47 6 50 1 Q43 4 39 10" fill="#00ff88"/>
+          <ellipse cx="25" cy="24" rx="18" ry="16" fill="#050810"/>
+          <circle cx="17" cy="20" r="5.5" fill="#00ff88"/>
+          <circle cx="33" cy="20" r="5.5" fill="#00ff88"/>
+          <circle cx="18" cy="19" r="2.5" fill="#050810"/>
+          <circle cx="34" cy="19" r="2.5" fill="#050810"/>
+          <circle cx="18.5" cy="18.5" r="1" fill="#fff" opacity=".7"/>
+          <circle cx="34.5" cy="18.5" r="1" fill="#fff" opacity=".7"/>
+          <ellipse cx="25" cy="31" rx="7" ry="4.5" fill="#0c1222"/>
+          <ellipse cx="25" cy="30" rx="4" ry="2.5" fill="#00ff88" opacity=".4"/>
+          <path d="M10 17 Q5 11 7 5 Q13 13 14 18" fill="#050810"/>
+          <path d="M40 17 Q45 11 43 5 Q37 13 36 18" fill="#050810"/>
+        </svg>
+      </div>
+      <div>
+        <strong>TOROMAX AI</strong>
+        <span class="bot-online">● Inteligencia Artificial Activa</span>
+      </div>
+    </div>
+    <button class="chatbot-toggle" id="chatbot-toggle" onclick="toggleChat()">▼</button>
+  </div>
+  <div class="chatbot-body" id="chatbot-body">
+    <div class="chat-messages" id="chat-messages">
+      <div class="bot-message">
+        <span class="msg-avatar toromax-small-av">
+          <svg viewBox="0 0 30 26" width="24" height="20">
+            <path d="M5 7 Q2 4 0 1 Q4 3 6 6" fill="#00ff88"/>
+            <path d="M25 7 Q28 4 30 1 Q26 3 24 6" fill="#00ff88"/>
+            <ellipse cx="15" cy="15" rx="11" ry="10" fill="#050810"/>
+            <circle cx="10" cy="12" r="3.5" fill="#00ff88"/>
+            <circle cx="20" cy="12" r="3.5" fill="#00ff88"/>
+            <circle cx="10.5" cy="11.5" r="1.5" fill="#050810"/>
+            <circle cx="20.5" cy="11.5" r="1.5" fill="#050810"/>
+          </svg>
+        </span>
+        <div class="msg-bubble">¡Hola! Soy <strong>TOROMAX AI</strong> 🐂, tu asistente inteligente de soporte técnico. Estoy potenciado con IA real para ayudarte. ¿En qué puedo asistirte hoy? 💻</div>
+      </div>
+      <div class="quick-suggestions">
+        <button class="quick-btn" onclick="sendQuick('¿Cómo sé si mi PC tiene virus?')">¿Mi PC tiene virus?</button>
+        <button class="quick-btn" onclick="sendQuick('¿Qué causa que una PC esté lenta?')">PC lenta</button>
+        <button class="quick-btn" onclick="sendQuick('¿Cómo recupero archivos borrados?')">Recuperar archivos</button>
+        <button class="quick-btn" onclick="sendQuick('¿Cuándo es necesario formatear?')">¿Formatear?</button>
+      </div>
+    </div>
+    <div class="chat-input-wrap">
+      <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter') sendMessage()" />
+      <button class="chat-send" onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+</div>
+
+<button class="chatbot-fab" id="chatbot-fab" onclick="openChat()">
+  <svg viewBox="0 0 50 42" width="28" height="24" class="fab-bull-icon">
+    <path d="M8 12 Q3 6 0 1 Q7 4 11 10" fill="#050810"/>
+    <path d="M42 12 Q47 6 50 1 Q43 4 39 10" fill="#050810"/>
+    <ellipse cx="25" cy="24" rx="18" ry="16" fill="#050810"/>
+    <circle cx="17" cy="20" r="5.5" fill="#00ff88"/>
+    <circle cx="33" cy="20" r="5.5" fill="#00ff88"/>
+    <circle cx="18" cy="19" r="2.5" fill="#050810"/>
+    <circle cx="34" cy="19" r="2.5" fill="#050810"/>
+    <circle cx="18.5" cy="18.5" r="1" fill="#fff" opacity=".6"/>
+    <circle cx="34.5" cy="18.5" r="1" fill="#fff" opacity=".6"/>
+  </svg>
+  <span class="fab-label-text">TOROMAX AI</span>
+  <span class="fab-pulse"></span>
+</button>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Limpieza de Archivos Temporales — TechSupport Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+  <style>
+    .service-detail-container {
+      max-width: 900px;
+      margin: 140px auto 80px;
+      padding: 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      box-shadow: var(--shadow-green);
+      position: relative;
+      z-index: 10;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--neon-blue);
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      transition: color 0.3s;
+    }
+    .back-link:hover {
+      color: var(--neon-green);
+      text-shadow: 0 0 8px var(--neon-green);
+    }
+    .detail-header {
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .detail-header h1 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--text-primary);
+      margin-top: 8px;
+    }
+    .detail-body p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .features-list {
+      list-style: none;
+      margin: 32px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .features-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0, 255, 136, 0.02);
+      border: 1px solid rgba(21, 45, 74, 0.6);
+      padding: 16px;
+      border-radius: 8px;
+      color: var(--text-primary);
+    }
+    .features-list .icon {
+      font-size: 1.4rem;
+    }
+    @media (max-width: 768px) {
+      .service-detail-container { margin: 100px 16px 40px; padding: 24px; }
+      .features-list { grid-template-columns: 1fr; }
+    }
+  
+  </style>
+</head>
+<body>
+<!-- ============================================================
+     CURSOR PERSONALIZADO — pega esto en TODAS tus subpáginas
+     ============================================================ -->
+
+<!-- 1) Agrega esto dentro del <style> que ya tiene cada página -->
+<style>
+  /* Oculta el cursor nativo en toda la página */
+  *, *::before, *::after { cursor: none !important; }
+
+  .cursor {
+    width: 12px;
+    height: 12px;
+    background: #00ff88;
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 99999;          /* encima de todo, incluso del video */
+    transform: translate(-50%, -50%);
+    transition: width .15s, height .15s, background .15s;
+    box-shadow: 0 0 10px #00ff88, 0 0 22px rgba(0,255,136,0.4);
+  }
+  .cursor-trail {
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid rgba(0,255,136,0.35);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 99998;          /* justo debajo del cursor */
+    transform: translate(-50%, -50%);
+  }
+</style>
+
+<!-- 2) Agrega estos dos divs justo después de <body> -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursor-trail"></div>
+
+<!-- 3) Agrega este script justo antes de </body> -->
+<script>
+  const cursor = document.getElementById('cursor');
+  const trail  = document.getElementById('cursor-trail');
+  let mx = 0, my = 0, tx = 0, ty = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top  = my + 'px';
+  });
+
+  (function animTrail() {
+    tx += (mx - tx) * 0.12;
+    ty += (my - ty) * 0.12;
+    trail.style.left = tx + 'px';
+    trail.style.top  = ty + 'px';
+    requestAnimationFrame(animTrail);
+  })();
+
+  // Efecto al pasar sobre links y botones
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width      = '20px';
+      cursor.style.height     = '20px';
+      cursor.style.background = 'rgba(0,255,136,0.5)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width      = '12px';
+      cursor.style.height     = '12px';
+      cursor.style.background = '#00ff88';
+    });
+  });
+</script>
+<!-- ============================================================ -->
+<div class="cursor"></div>
+<div class="cursor-trail"></div>
+<canvas id="particles-canvas"></canvas>
+
+<div class="service-detail-container">
+  <a href="index.html#servicios" class="back-link">➔ REGRESAR AL PANEL PRINCIPAL</a>
+  
+  <div class="detail-header">
+    <div class="section-tag">// ASISTENCIA REMOTA INMEDIATA</div>
+    <h1>LIMPIEZA DE <span class="neon-green">ARCHIVOS TEMPORALES</span></h1>
+  </div>
+
+  <div class="detail-body">
+    <p>Con el paso del tiempo, los sistemas operativos y las aplicaciones acumulan gigabytes de datos redundantes, historiales de navegación corruptos, volcados de memoria innecesarios y archivos caché obsoletos. Estos registros actúan como un lastre digital que degrada los tiempos de respuesta y limita el espacio de almacenamiento real de tu disco duro.</p>
+    
+    <p>Nuestro servicio especializado purga estas capas inertes de software de forma segura y remota, garantizando la optimización de los sectores de lectura de datos del sistema sin comprometer tu información personal o archivos de trabajo bajo ninguna circunstancia.</p>
+    
+    <h3 class="section-tag" style="margin-top:40px;">// ACCIONES INCLUIDAS EN EL PROTOCOLO:</h3>
+    <ul class="features-list">
+      <li><span class="icon">🗑️</span> <span>Depuración de directorios TEMP ocultos de Windows</span></li>
+      <li><span class="icon">🌐</span> <span>Eliminación de caché e historiales corruptos en navegadores</span></li>
+      <li><span class="icon">🛠️</span> <span>Optimización y reparación del registro maestro del sistema</span></li>
+      <li><span class="icon">🚀</span> <span>Aceleración de los tiempos de arranque y apertura de apps</span></li>
+    </ul>
+
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="index.html#contacto" class="btn-primary">SOLICITAR LIMPIEZA INMEDIATA ⚡</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

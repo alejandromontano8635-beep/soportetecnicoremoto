@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formateo de Máquinas — TechSupport</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+  <style>
+    body { background-color: #0a0a0f; color: #ffffff; padding: 60px 20px; font-family: 'Rajdhani', sans-serif; }
+    .container-detail { max-width: 800px; margin: 0 auto; background: rgba(16, 16, 24, 0.85); border: 1px solid #ff2d55; padding: 40px; border-radius: 4px; box-shadow: 0 0 20px rgba(255, 45, 85, 0.2); }
+    .back-link { font-family: 'Share Tech Mono', monospace; color: #ff2d55; text-decoration: none; display: inline-block; margin-bottom: 20px; font-size: 1.1rem; }
+    .back-link:hover { text-shadow: 0 0 8px #ff2d55; }
+    h1 { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 25px; color: #ffffff; letter-spacing: 2px; border-bottom: 2px dashed #ff2d55; padding-bottom: 15px; }
+    p { font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px; color: #cccccc; }
+    .protocol-box { margin-top: 35px; background: rgba(0, 0, 0, 0.5); padding: 25px; border-left: 4px solid #ff2d55; }
+    .protocol-box h3 { font-family: 'Orbitron', sans-serif; color: #ff2d55; font-size: 1.2rem; margin-bottom: 15px; letter-spacing: 1px; }
+    .protocol-list { list-style: none; padding: 0; }
+    .protocol-list li { font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-family: 'Share Tech Mono', monospace; }
+    .btn-action-detail { display: inline-block; margin-top: 30px; text-decoration: none; padding: 12px 30px; font-family: 'Orbitron', sans-serif; font-weight: bold; border-radius: 0; box-shadow: 0 0 15px rgba(255, 45, 85, 0.4); background: #ff2d55; color: #ffffff; border: 1px solid #ff2d55; transition: all 0.3s ease; }
+    .btn-action-detail:hover { background: transparent; color: #ff2d55; box-shadow: 0 0 25px rgba(255, 45, 85, 0.7); }
+  
+  </style>
+</head>
+<body>
+  <!-- ============================================================
+     CURSOR PERSONALIZADO — pega esto en TODAS tus subpáginas
+     ============================================================ -->
+
+<!-- 1) Agrega esto dentro del <style> que ya tiene cada página -->
+<style>
+  /* Oculta el cursor nativo en toda la página */
+  *, *::before, *::after { cursor: none !important; }
+
+  .cursor {
+    width: 12px;
+    height: 12px;
+    background: #00ff88;
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 99999;          /* encima de todo, incluso del video */
+    transform: translate(-50%, -50%);
+    transition: width .15s, height .15s, background .15s;
+    box-shadow: 0 0 10px #00ff88, 0 0 22px rgba(0,255,136,0.4);
+  }
+  .cursor-trail {
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid rgba(0,255,136,0.35);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 99998;          /* justo debajo del cursor */
+    transform: translate(-50%, -50%);
+  }
+</style>
+
+<!-- 2) Agrega estos dos divs justo después de <body> -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursor-trail"></div>
+
+<!-- 3) Agrega este script justo antes de </body> -->
+<script>
+  const cursor = document.getElementById('cursor');
+  const trail  = document.getElementById('cursor-trail');
+  let mx = 0, my = 0, tx = 0, ty = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top  = my + 'px';
+  });
+
+  (function animTrail() {
+    tx += (mx - tx) * 0.12;
+    ty += (my - ty) * 0.12;
+    trail.style.left = tx + 'px';
+    trail.style.top  = ty + 'px';
+    requestAnimationFrame(animTrail);
+  })();
+
+  // Efecto al pasar sobre links y botones
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width      = '20px';
+      cursor.style.height     = '20px';
+      cursor.style.background = 'rgba(0,255,136,0.5)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width      = '12px';
+      cursor.style.height     = '12px';
+      cursor.style.background = '#00ff88';
+    });
+  });
+</script>
+<!-- ============================================================ -->
+  <div class="container-detail">
+    <a href="index.html#servicios" class="back-link">◀ [ REGRESAR AL CATÁLOGO ]</a>
+    <h1>💻 FORMATEO DE MÁQUINAS</h1>
+    
+    <p>Con el uso continuo, los sistemas operativos pueden acumular errores, configuraciones defectuosas, programas innecesarios y conflictos que afectan la estabilidad general del equipo. Cuando estas situaciones se vuelven recurrentes, una reinstalación completa suele ser la solución más efectiva para restaurar el rendimiento original.</p>
+    
+    <p>Nuestro servicio realiza un formateo profesional de la unidad de almacenamiento y una instalación limpia del sistema operativo. Posteriormente, configuramos los controladores esenciales y realizamos ajustes iniciales para entregar un entorno estable, seguro y listo para trabajar.</p>
+
+    <div class="protocol-box">
+      <h3>// ACCIONES INCLUIDAS EN EL PROTOCOLO:</h3>
+      <ul class="protocol-list">
+        <li>💿 Formateo seguro de la unidad de almacenamiento.</li>
+        <li>⚙️ Instalación limpia del sistema operativo.</li>
+        <li>🔧 Configuración de controladores and actualizaciones.</li>
+        <li>🚀 Optimización inicial para máximo rendimiento y estabilidad.</li>
+      </ul>
+    </div>
+
+    <a href="index.html#contacto" class="btn-action-detail">SOLICITAR ASISTENCIA URGENTE ⚡</a>
+  </div>
+</body>
+</html>
